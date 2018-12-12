@@ -2,6 +2,10 @@
 
 This repository contains some code I developed while learning AngularDart.
 
+# Examples
+
+* [One way data binding from data to view](https://github.com/denis-beurive/angulardart-playground/tree/master/one-way-binding-data-to-view)
+
 # Project organisation
 
 Angular apps are made up of components. A component is the combination of an HTML template and a component class that controls a portion of the screen.
