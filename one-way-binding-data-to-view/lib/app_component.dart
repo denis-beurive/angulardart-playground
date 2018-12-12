@@ -39,7 +39,7 @@ class AppComponent implements OnInit {
     'http://beurive.com/images/logos/delicious.png'
   ];
   static const List<String> _classes = ['info', 'success', 'error'];
-  final String title = "One way binding from data to view";
+  final String title = 'One way binding from data to view';
 
   /// This property is bound to a DOM property of the view.
   bool propertyHideIt = true;
