@@ -1,0 +1,16 @@
+<!--
+    See https://webdev.dartlang.org/angular/guide/template-syntax
+-->
+
+<h1>{{title}}</h1>
+
+This simple application demonstrates the use of one way binding from data to view.
+
+<p>The syntax is <code>(DOM event)="..."</code></p>
+
+<hr/>
+<button (click)="onClick()">Change the image!</button>
+<hr/>
+<img [attr.src]="imageSrc" height="42" width="42" />
+
+
