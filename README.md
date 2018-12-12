@@ -9,6 +9,7 @@ This repository contains some code I developed while learning AngularDart.
 
 # Notes
 
+* [Warnings](https://github.com/denis-beurive/angulardart-playground/blob/master/warnings.md)
 * [Template](https://github.com/denis-beurive/angulardart-playground/tree/master/template.md)
 * [Binding](https://github.com/denis-beurive/angulardart-playground/tree/master/binding.md)
 
