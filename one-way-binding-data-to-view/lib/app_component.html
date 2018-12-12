@@ -2,10 +2,21 @@
     See https://webdev.dartlang.org/angular/guide/template-syntax
 -->
 
-<center><h1>{{title}}</h1></center>
+<h1>{{title}}</h1>
+
+This simple application demonstrates the use of one way binding from data to view for the elements listed below:
+
+<ul>
+    <li>DOM properties.</li>
+    <li>HTML attributes.</li>
+    <li>classes.</li>
+    <li>CSS styles.</li>
+</ul>
+
+<p>The syntax is <code>[...]="..."</code></p>
 
 <hr/>
-<span [hidden]="propertyHideIt">Hello!</span>
+<span [style.font-weight]="styleIsBold ? 'bold' : 'normal'">The message is</span> <span [hidden]="propertyHideIt" [class]="classMessage">Hello!</span>
 <hr/>
-<img [attr.src]="attributeSrc"/>
+<img [attr.src]="attributeSrc" height="42" width="42"/>
 

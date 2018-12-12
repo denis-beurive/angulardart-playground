@@ -1,37 +1,9 @@
 // This example illustrates the one way binding from data to view.
 
 import 'package:angular/angular.dart';
-import 'dart:async';
+import 'package:myapp/src/Repeater.dart';
+import 'package:myapp/src/ListLooper.dart';
 
-typedef void TimeDoer();
-
-
-/// This class implements a component that executes a given function periodically.
-class LooperTime {
-  final int _total;
-  final int _delay;
-  int _count=0;
-  LooperTime(this._total, this._delay);
-  void go(TimeDoer f) {
-    Future.delayed(Duration(seconds: _delay)).then((var v) {
-      f();
-      if (_count < _total) {
-        _count++;
-        go(f);
-      }
-    });
-  }
-}
-
-class LooperList {
-  final List<String> _list;
-  int _index=0;
-  LooperList(this._list);
-  String next() {
-    _index = ++_index % _list.length;
-    return _list[_index];
-  }
-}
 
 /// This metadata defines data that will apply to the component "AppComponent".
 @Component(
@@ -66,21 +38,28 @@ class AppComponent implements OnInit {
     'http://beurive.com/images/logos/python-logo.png',
     'http://beurive.com/images/logos/delicious.png'
   ];
+  static const List<String> _classes = ['info', 'success', 'error'];
   final String title = "One way binding from data to view";
 
   /// This property is bound to a DOM property of the view.
-  bool propertyHideIt=true;
+  bool propertyHideIt = true;
   /// This property is bound to an HTML attribute the view.
-  String attributeSrc=_images[0];
+  String attributeSrc = _images[0];
+  String classMessage = _classes[0];
+  bool styleIsBold = true;
 
-  LooperTime looperTime = LooperTime(10, 1);
-  LooperList looperList = LooperList(_images);
+  Repeater repeater = Repeater(10, 1);
+  ListLooper imagesLooper = ListLooper(_images);
+  ListLooper classesLooper = ListLooper(_classes);
+
 
   /// See "Lifecycle Hooks" (https://webdev.dartlang.org/angular/guide/lifecycle-hooks)
   void ngOnInit() {
-    looperTime.go(() {
+    repeater.go(() {
       propertyHideIt = ! propertyHideIt;
-      attributeSrc = looperList.next();
+      styleIsBold = ! styleIsBold;
+      attributeSrc = imagesLooper.next();
+      classMessage = classesLooper.next();
     });
   }
 }
