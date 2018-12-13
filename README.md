@@ -6,6 +6,7 @@ This repository contains some code I developed while learning AngularDart.
 
 * [One way data binding from data to view](https://github.com/denis-beurive/angulardart-playground/tree/master/one-way-binding-data-to-view)
 * [One way data binding from view to data](https://github.com/denis-beurive/angulardart-playground/tree/master/one-way-binding-view-to-data)
+* [Two way data binding with forms](https://github.com/denis-beurive/angulardart-playground/tree/master/two-way-binding-with-forms)
 
 # Notes
 
