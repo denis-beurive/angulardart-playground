@@ -118,7 +118,7 @@ It is included in the application through the line below (in the file `index.htm
 
 If an error occurred, details about the error is written into the WEB console.
 
-# Misc
+# Links to documentation
 
 * **Examples**: [https://github.com/dart-lang/angular/tree/master/examples](https://github.com/dart-lang/angular/tree/master/examples)
 * **AngularDart Components**: [https://webdev.dartlang.org/angular/components](https://webdev.dartlang.org/angular/components)
@@ -127,4 +127,6 @@ If an error occurred, details about the error is written into the WEB console.
 * **Core directives**: [https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant
 ](https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant)
 * **User input**: [https://webdev.dartlang.org/angular/guide/user-input](https://webdev.dartlang.org/angular/guide/user-input)
+* **Directives for forms**: see the file [directives.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives.dart)
+
 
