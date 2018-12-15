@@ -1,6 +1,7 @@
 # Description
 
 This example illustrates the use of a two-way data binding within forms.
+It also introduces the use of the package "dart:html".
 
 See [directives.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives.dart) for the list of all directives.
 
@@ -8,6 +9,27 @@ See [directives.dart](https://github.com/dart-lang/angular/blob/master/angular_f
 
 > The [(x)] syntax combines the brackets of property binding, [x], with the parentheses of event binding, (x).
 > See [this link](https://webdev.dartlang.org/angular/guide/template-syntax).
+
+Please note that it seems that two-way binding is not working well with radio boxes. See these links:
+
+* (https://stackoverflow.com/questions/20985142/trouble-when-working-with-radio-button-in-angular-dart)[https://stackoverflow.com/questions/20985142/trouble-when-working-with-radio-button-in-angular-dart]
+* (https://stackoverflow.com/questions/31394375/angular-dart-radio-buttons-not-binding-to-model)[https://stackoverflow.com/questions/31394375/angular-dart-radio-buttons-not-binding-to-model]
+* (https://github.com/dart-lang/angular/issues/293)[https://github.com/dart-lang/angular/issues/293]
+
+I did not it to work.
+
+# Troubleshooting
+
+## Make sure to use the last current versions
+
+See:
+
+* [versions](https://webdev.dartlang.org/version)
+* [build_runner](https://pub.dartlang.org/packages/build_runner)
+
+> Modify the file "`pubspec.yaml`" accordingly.
+
+## Can't bind to 'ngModel' ... 
 
 **Be aware that the directives for forms (used to create the two-way bindings) are not loaded by default!**
 
@@ -49,6 +71,12 @@ Please note that if you fail to install, import or declare the package, then you
                         ^^^^^^^^^^^^^^^^^^^^^^^^
 
 # Technical notes
+
+To get the list of events bound to a given input:
+
+* [List of all HTML inputs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input)
+* [Radio button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+* [Text](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text)
 
 Run:
 
