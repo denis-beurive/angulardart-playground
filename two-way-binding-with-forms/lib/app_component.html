@@ -8,7 +8,33 @@ This simple application demonstrates the use of two-way binding with forms.
 
 <p>The syntax is <code>[(...)]="..."</code></p>
 
+<ul>
+    <li><b>Selected number</b>: {{selectNumber}}</li>
+    <li><b>Text number</b>: {{textNumber}}</li>
+    <li><b>factor</b>: {{factor}}</li>
+</ul>
+
 <hr/>
-<input name="title" [(ngModel)]="inputTitle" />
-<hr/>
+
+<p>
+    <!-- See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio -->
+    Select a factor:<br/>
+    <input id="f1" name="radioValue" type="radio" value="1" (change)="onChange($event)" [checked]="sf1.checked"/> x1<br/>
+    <input id="f2" name="radioValue" type="radio" value="2" (change)="onChange($event)" [checked]="sf2.checked"/> x2<br/>
+    <input id="f3" name="radioValue" type="radio" value="3" (change)="onChange($event)" [checked]="sf3.checked"/> x3<br/>
+</p>
+
+<p>
+    Select a factor:<br/>
+    <select [(ngModel)]="selectNumber" (change)="onChange($event)">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</p>
+
+<p>
+    Enter a numerical value:<br/>
+    <input type="text" [(ngModel)]="textNumber" /><br/>
+</p>
 
