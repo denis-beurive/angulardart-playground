@@ -24,5 +24,5 @@ The right syntax is (replace `in` by `of`):
 
 # Links
 
-* (Structural Directives)[https://webdev.dartlang.org/angular/guide/structural-directives]
-* (coreDirectives top-level constant)[https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant]
+* [Structural Directives](https://webdev.dartlang.org/angular/guide/structural-directives)
+* [coreDirectives top-level constant](https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant)
