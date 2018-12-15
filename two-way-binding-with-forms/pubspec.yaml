@@ -3,12 +3,18 @@ description: This example illustrates the use of a two-way data binding.
 version: 0.0.1
 environment:
   sdk: ">=2.0.0-dev.64.2 <3.0.0"
+
+# See https://webdev.dartlang.org/version
+
 dependencies:
-  angular: ^5.0.0-beta+2
-  angular_forms: ^2.0.0
+  angular: ^5.1.0
+  angular_forms: ^2.1.0
+  sprintf: ^4.0.0
+
 dev_dependencies:
   angular_test: ^2.0.0-beta+2
-  build_runner: ^0.9.2
+  # See https://pub.dartlang.org/packages/build_runner
+  build_runner: 1.1.2 # ^0.9.2
   build_test: ^0.10.3+1
   build_web_compilers: ^0.4.1
   pageloader: ^3.0.0-beta
