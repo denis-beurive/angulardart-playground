@@ -28,3 +28,39 @@ Just remove the last comma and everything works fine!
       templateUrl: 'app_component.html'
     )
 
+## Make sure to export the built-in directives
+
+You may think that "built-in" _something_ is automatically available. This seems obvious: if it is "**built-in**", then it is already included, isn't it ?
+
+Well, this is not the case with built-in directives! If you need to use them within templates, then you must **explicitly** make then available within the template !
+
+    @Component(
+      ...
+      directives: const [coreDirectives],
+      ...
+    )
+    class AppComponent { ... }
+
+
+## Make sure to import and export the form directives
+
+These directives are heavily used. Thus you may assume that they are avalaible by default.
+This is not the case. You must:
+
+* import the packahe "`angular_forms/angular_forms.dart`".
+* you must make the directives available within the template.
+
+That is:
+
+    import 'package:angular_forms/angular_forms.dart';
+    ...
+    @Component(
+      ...
+
+      directives: const [formDirectives],
+      ...
+    )
+    class AppComponent { ... }
+
+> Do you imagine a case where you import the package but you don't make the directives available within the template ? I do not.
+
