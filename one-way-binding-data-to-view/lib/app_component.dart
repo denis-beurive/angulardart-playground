@@ -52,8 +52,13 @@ class AppComponent implements OnInit {
   ListLooper imagesLooper = ListLooper(_images);
   ListLooper classesLooper = ListLooper(_classes);
 
-
   /// See "Lifecycle Hooks" (https://webdev.dartlang.org/angular/guide/lifecycle-hooks)
+  /// Note: @override just points out that the function is also defined in an
+  ///        ancestor class, but is being redefined to do something else in the
+  ///        current class. It's also used to annotate the implementation of an
+  ///        abstract method.
+  ///        @override is optional to use but recommended as it improves readability.
+  @override
   void ngOnInit() {
     repeater.go(() {
       propertyHideIt = ! propertyHideIt;
