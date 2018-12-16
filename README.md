@@ -7,7 +7,15 @@ This repository contains some code I developed while learning AngularDart.
 * [One way data binding from data to view](https://github.com/denis-beurive/angulardart-playground/tree/master/one-way-binding-data-to-view)
 * [One way data binding from view to data](https://github.com/denis-beurive/angulardart-playground/tree/master/one-way-binding-view-to-data)
 * [Two way data binding with forms](https://github.com/denis-beurive/angulardart-playground/tree/master/two-way-binding-with-forms)
-* [Template syntax](https://github.com/denis-beurive/angulardart-playground/tree/master/template-syntax)
+* [Template syntax](https://github.com/denis-beurive/angulardart-playground/tree/master/template-syntax). This include:
+  * Template interpolation (`{{template_expression}}`).
+  * Template expressions. You find template expressions within interpolation or data binding. 
+    Ex: `{{template_expression}}` or `[property]="template_expression"`.
+  * Template statements: a template statement responds to an **event** raised by a binding target such 
+    as an element, component, or directive. Ex: `(click)="template_statement"`.
+  * Template reference variables (`#var`).
+  * Built-in structural directives (`ngIf`, `ngFor`, `ngSwitch`).
+
 
 # Notes
 
