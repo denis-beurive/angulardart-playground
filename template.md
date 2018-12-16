@@ -1,5 +1,17 @@
 # Templates
 
+## Template expression
+
+You find template expressions within interpolation or data binding. 
+
+Example for interpolation:
+
+    {{template_expression}}
+
+Example for data binding:
+
+    [property]="template_expression"
+
 ## Interpolation
 
 Interpolation takes place within double-curly braces (`{{templateExpression}}`) or double quotes ("templateExpression").
@@ -23,5 +35,38 @@ The "template expression" may refer to any entity (variables or functions) avail
 A template statement responds to an event raised by a binding target such as an element, component, or directive. See
 [this link](https://webdev.dartlang.org/angular/guide/template-syntax).
 
-Example: <button (click)="deleteHero()">Delete hero</button>
+Example: 
+
+    <button (click)="onClick()">Do it!</button>
+
+# Template reference variables
+
+Template reference variables reference HTML elements.
+
+Example:
+
+    <h1>Your title: {{titleValue}}</h1>
+    <input #title type="text"/>
+    <input type="button" (click)="setTile(title.value)" value="Set the title"/><br/> <!-- See #title -->
+
+> There is no binding "in the context of the template". You cannot bind the content of the tag "`h1`" to 
+> the value of the input referenced by the ID "`#title`" without the use of Dart code. Here, the link 
+> between the content of the tag "`h1`" and the value of the input which reference is "`#title`" is the 
+> callback "`setTile()`".
+
+# Template statements
+
+A template statement responds to an **event** raised by a binding target such as an element, component, or directive.
+
+Example:
+
+    (click)="template_statement"
+
+
+# Built-in structural directives
+
+See `ngIf`, `ngFor` and `ngSwitch`.
+
+
+
 
