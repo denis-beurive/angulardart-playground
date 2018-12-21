@@ -1,0 +1,82 @@
+<div class="form-style-10">
+    <h1>Sign Up Now!<span>Sign up and tell us what you think of the site!</span></h1>
+    <form>
+        <div class="section"><span>1</span>First Name &amp; Address</div>
+        <div class="inner-wrap">
+            <label>
+                Your Full Name
+                <input [(ngModel)]="member.fullName"
+                       type="text"
+                       name="fullName"
+                       ngControl="fullName"
+                       validator-full-name /> <!-- See our custom validator ValidatorFullName -->
+            </label>
+            <label>
+                Address
+                <textarea [(ngModel)]="member.mailingAddress"
+                          name="mailingAddress"
+                          ngControl="mailingAddress"></textarea>
+            </label>
+        </div>
+
+        <div class="section"><span>2</span>Email &amp; Phone</div>
+        <div class="inner-wrap">
+            <label>
+                Email Address
+                <input [(ngModel)]="member.emailAddress"
+                       type="email"
+                       name="emailAddress"
+                       ngControl="emailAddress"/>
+            </label>
+            <label>
+                Phone Number
+                <input [(ngModel)]="member.phoneNumber"
+                       type="text"
+                       name="phoneNumber"
+                       ngControl="phoneNumber"/>
+            </label>
+        </div>
+
+        <div class="section"><span>3</span>Passwords</div>
+        <div class="inner-wrap">
+            <label>
+                Password
+                <input [(ngModel)]="member.password"
+                       type="password"
+                       name="password"
+                       ngControl="password"/>
+            </label>
+            <label>
+                Confirm Password
+                <input [(ngModel)]="member.passwordConfirmation"
+                       type="password"
+                       name="passwordConfirmation"
+                       ngControl="passwordConfirmation"/>
+            </label>
+        </div>
+
+        <div class="section"><span>4</span>Language</div>
+        <div class="inner-wrap">
+            <label>
+                Select your language
+                <select [(ngModel)]="member.language" name="language" ngControl="language">
+                    <option *ngFor="let language of MemberSubscriptionData.languages" value="{{language}}">
+                        {{language}}
+                    </option>
+                </select>
+            </label>
+        </div>
+
+        <div class="button-section">
+            <input type="submit" name="Sign Up" />
+            <span class="privacy-policy">
+                <input [(ngModel)]="member.agreement"
+                       type="checkbox"
+                       name="agreement"
+                       ngControl="agreement" />
+                You agree to our Terms and Policy.
+            </span>
+        </div>
+    </form>
+</div>
+
