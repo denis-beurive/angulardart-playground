@@ -15,7 +15,7 @@ This repository contains some code I developed while learning AngularDart.
     as an element, component, or directive. Ex: `(click)="template_statement"`.
   * Template reference variables (`#var`).
   * Built-in structural directives (`ngIf`, `ngFor`, `ngSwitch`).
-
+* [Forms](https://github.com/denis-beurive/angulardart-playground/tree/master/forms)
 
 # Notes
 
