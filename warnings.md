@@ -64,3 +64,47 @@ That is:
 
 > Do you imagine a case where you import the package but you don't make the directives available within the template ? I do not.
 
+## Use the "const" keyword with cautious!
+
+The code below is OK:
+
+    @Component(
+      selector: 'app-component',
+      templateUrl: 'app_component.html',
+      directives: const [formDirectives, coreDirectives]
+    )
+    class AppComponent {
+      static List<String> languages = const ['English', 'French', 'Spanish', 'Italian'];
+    }
+
+However, the following code is **NOT** OK:
+
+    @Component(
+      selector: 'app-component',
+      templateUrl: 'app_component.html',
+      directives: const [formDirectives, coreDirectives]
+    )
+    class AppComponent {
+      static const List<String> languages = ['English', 'French', 'Spanish', 'Italian'];
+    }
+
+## Watch out for the unexpected space !
+
+The code below is WRONG:
+
+    <input [(ngModel)]="member.fullName"
+                        type="text"
+                        name="fullName"
+                        ngControl="fullName"
+                        validator-full-name/>
+
+The code below is OK (see the space after the name of the custom validator):
+
+    <input [(ngModel)]="member.fullName"
+                        type="text"
+                        name="fullName"
+                        ngControl="fullName"
+                        validator-full-name />
+
+
+                        
