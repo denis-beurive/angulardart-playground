@@ -5,12 +5,39 @@
         <div class="inner-wrap">
             <label>
                 Your Full Name
+                <!--
+                    ngForm / ngControl
+                    ==================
+
+                    #idFullName="ngForm"
+                    Here, we assign the directive "ngForm" to the template variable "#idFullName".
+                    Thus, "idFullName" gets bound to the NgModel associated with the input element.
+                    See the "exportAs" "metadata property" for the class NgForm (directives/ng_form.dart).
+
+                    See: https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/ng_form.dart
+                    See: https://webdev.dartlang.org/api/angular/angular/Directive/exportAs
+
+                    ngModel
+                    =======
+
+                    Creates a form [NgControl] instance from a domain model and binds it to a form control element.
+                    The form NgControl instance tracks the value, user interaction, and validation status of the control
+                    and keeps the view synced with the model.
+
+                    See: https://github.com/kulshekhar/angular2/blob/master/angular_forms/lib/src/directives/ng_model.dart
+                -->
                 <input [(ngModel)]="member.fullName"
                        type="text"
-                       name="fullName"
-                       ngControl="fullName"
+                       #idFullName="ngForm"
+                       ngControl="idFullName"
+                       [ngClass]="setInputStyle(idFullName)"
                        validator-full-name /> <!-- See our custom validator ValidatorFullName -->
             </label>
+            <ul>
+                <li class="report"><b>pristine</b>: {{fullNamePristine}}</li>
+                <li class="report"><b>valid</b>: {{fullNameValid}}</li>
+                <li class="report"><b>enabled</b>: {{fullNameEnabled}}</li>
+            </ul>
             <label>
                 Address
                 <textarea [(ngModel)]="member.mailingAddress"

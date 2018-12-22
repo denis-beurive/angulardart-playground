@@ -23,4 +23,20 @@ class AppComponent {
   // This object is used to hold the form data.
   MemberSubscriptionData member = MemberSubscriptionData();
 
+  String fullNameValid = '';
+  String fullNamePristine = '';
+  String fullNameEnabled = '';
+
+  Map<String, bool> setInputStyle(NgControl control) {
+    fullNameValid = control.valid.toString();
+    fullNamePristine = control.pristine.toString();
+    fullNameEnabled = control.enabled.toString();
+
+    Map<String, bool> classes = {
+      'default': control.pristine,
+      'valid': control.dirty && control.valid,
+      'error': control.dirty && !control.valid
+    };
+    return classes;
+  }
 }
