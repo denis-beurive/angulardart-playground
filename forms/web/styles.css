@@ -135,3 +135,23 @@ body {
   text-align: right;
 }
 
+/** Custom style **/
+
+input.error {
+  background-color: coral;
+}
+
+input.valid {
+  background-color: darkseagreen;
+}
+
+input.default {
+  background-color: #F8F8F8;
+}
+
+li.report {
+  font-size: x-small;
+  font-family: Courier;
+}
+
+
