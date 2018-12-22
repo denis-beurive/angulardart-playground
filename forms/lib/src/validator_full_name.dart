@@ -22,6 +22,7 @@ import 'package:angular_forms/angular_forms.dart';
 )
 
 class ValidatorFullName extends Validator {
+  @override
   Map<String, dynamic> validate(AbstractControl control) {
     Map<String, bool> status = {
       'empty': false,
@@ -40,6 +41,9 @@ class ValidatorFullName extends Validator {
       status['too-short'] = true;
     } else if (! v.hasMatch(control.value.toString())) {
       status['invalid-characters'] = true;
+    } else {
+      // Everything is OK. There is no error.
+      return null;
     }
 
     return status;
