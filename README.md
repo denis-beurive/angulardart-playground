@@ -16,6 +16,7 @@ This repository contains some code I developed while learning AngularDart.
   * Template reference variables (`#var`).
   * Built-in structural directives (`ngIf`, `ngFor`, `ngSwitch`).
 * [Forms](https://github.com/denis-beurive/angulardart-playground/tree/master/forms)
+* [Attribute directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-attribute).
 
 # Notes
 
@@ -138,5 +139,6 @@ If an error occurred, details about the error is written into the WEB console.
 ](https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant)
 * **User input**: [https://webdev.dartlang.org/angular/guide/user-input](https://webdev.dartlang.org/angular/guide/user-input)
 * **Directives for forms**: see the file [directives.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives.dart)
+* **Attribute directives**: [https://webdev.dartlang.org/angular/guide/attribute-directives]
 
 
