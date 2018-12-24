@@ -88,7 +88,7 @@ However, "ngModel" does not work for radio buttons (at least, I can't figure out
 * [A good explanation for the exportAs property](https://netbasal.com/angular-2-take-advantage-of-the-exportas-property-81374ce24d26).
 * [NgModel](https://github.com/kulshekhar/angular2/blob/master/angular_forms/lib/src/directives/ng_model.dart).
 * [NgForm](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/ng_form.dart).
-* [exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs)
+* [exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs).
 * [Web colors](https://en.wikipedia.org/wiki/Web_colors).
 
 # Credits
