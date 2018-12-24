@@ -139,6 +139,6 @@ If an error occurred, details about the error is written into the WEB console.
 ](https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant)
 * **User input**: [https://webdev.dartlang.org/angular/guide/user-input](https://webdev.dartlang.org/angular/guide/user-input)
 * **Directives for forms**: see the file [directives.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives.dart)
-* **Attribute directives**: [https://webdev.dartlang.org/angular/guide/attribute-directives]
-
+* **Attribute directives**: [https://webdev.dartlang.org/angular/guide/attribute-directives](https://webdev.dartlang.org/angular/guide/attribute-directives)
+* **DOM events reference**: [https://developer.mozilla.org/en-US/docs/Web/Events](https://developer.mozilla.org/en-US/docs/Web/Events).
 
