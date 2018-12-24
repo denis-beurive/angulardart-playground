@@ -22,7 +22,7 @@ class DirectiveMyBlinker {
   DirectiveMyBlinker(Element hostElement) {
     r = Repeater(20, 1);
     r.go(() {
-      hostElement.style.backgroundColor = r.count % 2 == 0 ? '#BDB76B' : '';
+      hostElement.style.backgroundColor = r.count % 2 == 0 ? '#FFFF00' : '';
     });
   }
   // This getter will be used directly from the template, through a template reference.
