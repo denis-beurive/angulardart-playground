@@ -1,3 +1,6 @@
+// This example shows how to create a basic directive.
+// It also illustrates the use of the directive property "exportAs".
+
 import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:myapp/src/Repeater.dart';

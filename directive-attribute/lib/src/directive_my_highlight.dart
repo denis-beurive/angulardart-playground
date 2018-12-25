@@ -1,6 +1,8 @@
+// This example shows how to associate DOM events to the directive.
+// It uses the directive "@HostListener".
+
 import 'dart:html';
 import 'package:angular/angular.dart';
-
 
 @Directive(
     selector: '[my-highlight]',
