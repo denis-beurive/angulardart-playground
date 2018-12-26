@@ -2,8 +2,7 @@
 
 ## Be aware of the nasty comma!
 
-A single comma can generate tons of errors! For example, let's consider the code below:
-
+**The presence or the absence** of A single comma can generate tons of errors! For example, let's consider the code below:
 
     @Component(
       selector: 'app-component',
@@ -21,12 +20,18 @@ This code will generate tons of errors!
     [error] Target of URI doesn't exist: 'package:angular/angular.dart'. (package:myapp/app_component.template.dart, line 8, col 8)
     ...
 
-Just remove the last comma and everything works fine!
+Just **remove or add** the last comma and everything works fine!
 
     @Component(
       selector: 'app-component',
       templateUrl: 'app_component.html'
     )
+
+> **BIG NOTICE !!!**
+> Please not that this behaviour is **not systematic**. Once you made a modification
+> (by adding or removing the last comma), you can undo what you did (if you added a
+> comma, then you can remove it)... and the errors don't reappear ! This point out
+> to a possible problem with a cache somewhere (within the transpiler tools chain).
 
 ## Make sure to export the built-in directives
 
