@@ -24,10 +24,11 @@ This repository contains some code I developed while learning AngularDart.
   * The use of the @Directive property [exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs).
   * The use of the directive [@HostListener](https://webdev.dartlang.org/api/angular/angular/HostListener-class).
   * The use of the directive [@Input](https://webdev.dartlang.org/api/angular/angular/Input-class).
+* [Structural directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-structural).
 
 # Notes
 
-* [Warnings](https://github.com/denis-beurive/angulardart-playground/blob/master/warnings.md)
+* [Troubleshooting](https://github.com/denis-beurive/angulardart-playground/blob/master/warnings.md) **MAKE SURE TO READ THIS !!!**
 * [Template](https://github.com/denis-beurive/angulardart-playground/tree/master/template.md)
 * [Binding](https://github.com/denis-beurive/angulardart-playground/tree/master/binding.md)
 
