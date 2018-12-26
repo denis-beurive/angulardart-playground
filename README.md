@@ -149,3 +149,4 @@ If an error occurred, details about the error is written into the WEB console.
 * **exportAs**: [https://webdev.dartlang.org/api/angular/angular/Directive/exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs).
 * **@HostListener**:[https://webdev.dartlang.org/api/angular/angular/HostListener-class](https://webdev.dartlang.org/api/angular/angular/HostListener-class).
 * **@Input**: [https://webdev.dartlang.org/api/angular/angular/Input-class](https://webdev.dartlang.org/api/angular/angular/Input-class).
+* **Validators**: [https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart).
