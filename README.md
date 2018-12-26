@@ -1,4 +1,4 @@
-# Inroduction
+# Introduction
 
 This repository contains some code I developed while learning AngularDart.
 
@@ -30,7 +30,7 @@ This repository contains some code I developed while learning AngularDart.
 
 It seems that the utility `webdev` is buggy. And **the bug can make you lose lots of time !** (until you figure out what's the real problem - and, as you will notice, _it's not at all obvious_).
 
-Let's say that you declare instantiate a "metadata" (to implement a component or a directive, for example). You write something like:
+Let's say that you instantiate a "metadata" (to implement a component or a directive, for example). You write something like:
 
     @Component(
         selector: 'app-component',
@@ -43,7 +43,7 @@ Let's say that you declare instantiate a "metadata" (to implement a component or
 
 Everything compiles... you are happy.
 
-You change something in your code, in another file... And, suddenly, you get tons of errors ! Your first reaction is to look at what your last changes. But everything seems OK. You restart the CLI command `webdev serve`... maybe there is something that needs to be reinitialised somewhere. Nothing changes. You still have tons of errors !
+You change something in your code, in another file... And, suddenly, you get tons of errors ! Your first reaction is to look at your last changes. But everything seems OK. You restart the CLI command `webdev serve`... maybe there is something that needs to be reinitialised somewhere. Nothing changes. You still have tons of errors !
 
 Then, your intuition tells you to add a comma in the declaration :
 
@@ -59,6 +59,8 @@ Then, your intuition tells you to add a comma in the declaration :
 Do you see the difference ?
 
 > How does your intuition find out ? You have no idea. But the code compiles all right !
+
+Everything compiles !
 
 And that's not the end of the story. Now you remove the comma you've just added.
 
