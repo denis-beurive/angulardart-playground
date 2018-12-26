@@ -26,6 +26,55 @@ This repository contains some code I developed while learning AngularDart.
   * The use of the directive [@Input](https://webdev.dartlang.org/api/angular/angular/Input-class).
 * [Structural directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-structural).
 
+# Important note: please read
+
+It seems that the utility `webdev` is buggy. And **the bug can make you lose lots of time !** (until you figure out what's the real problem - and, as you will notice, _it's not at all obvious_).
+
+Let's say that you declare instantiate a "metadata" (to implement a component or a directive, for example). You write something like:
+
+    @Component(
+        selector: 'app-component',
+        templateUrl: 'app_component.html',
+        directives: [MyListerDirective]
+    )
+    class AppComponent {
+
+    }
+
+Everything compiles... you are happy.
+
+You change something in your code, in another file... And, suddenly, you get tons of errors ! Your first reaction is to look at what your last changes. But everything seems OK. You restart the CLI command `webdev serve`... maybe there is something that needs to be reinitialised somewhere. Nothing changes. You still have tons of errors !
+
+Then, your intuition tells you to add a comma in the declaration :
+
+    @Component(
+        selector: 'app-component',
+        templateUrl: 'app_component.html',
+        directives: [MyListerDirective],
+    )
+    class AppComponent {
+
+    }
+
+Do you see the difference ?
+
+> How does your intuition find out ? You have no idea. But the code compiles all right !
+
+And that's not the end of the story. Now you remove the comma you've just added.
+
+    @Component(
+        selector: 'app-component',
+        templateUrl: 'app_component.html',
+        directives: [MyListerDirective]
+    )
+    class AppComponent {
+
+    }
+
+And guess what : it compiles all right !
+
+Seems pretty inconsistent, doesn't it ?
+
 # Notes
 
 * [Troubleshooting](https://github.com/denis-beurive/angulardart-playground/blob/master/warnings.md) **MAKE SURE TO READ THIS !!!**
