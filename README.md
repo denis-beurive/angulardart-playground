@@ -7,7 +7,7 @@ This repository contains some code I developed while learning AngularDart.
 * [One way data binding from data to view](https://github.com/denis-beurive/angulardart-playground/tree/master/one-way-binding-data-to-view)
 * [One way data binding from view to data](https://github.com/denis-beurive/angulardart-playground/tree/master/one-way-binding-view-to-data)
 * [Two way data binding with forms](https://github.com/denis-beurive/angulardart-playground/tree/master/two-way-binding-with-forms)
-* [Template syntax](https://github.com/denis-beurive/angulardart-playground/tree/master/template-syntax). This include:
+* [Template syntax](https://github.com/denis-beurive/angulardart-playground/tree/master/template-syntax). This includes:
   * Template interpolation (`{{template_expression}}`).
   * Template expressions. You find template expressions within interpolation or data binding. 
     Ex: `{{template_expression}}` or `[property]="template_expression"`.
@@ -16,7 +16,11 @@ This repository contains some code I developed while learning AngularDart.
   * Template reference variables (`#var`).
   * Built-in structural directives (`ngIf`, `ngFor`, `ngSwitch`).
 * [Forms](https://github.com/denis-beurive/angulardart-playground/tree/master/forms)
-* [Attribute directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-attribute).
+* [Attribute directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-attribute). This includes:
+  * The basic.
+  * The use of the @Directive property [exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs).
+  * The use of the directive [@HostListener](https://webdev.dartlang.org/api/angular/angular/HostListener-class).
+  * The use of the directive [@Input](https://webdev.dartlang.org/api/angular/angular/Input-class).
 
 # Notes
 
@@ -131,17 +135,17 @@ If an error occurred, details about the error is written into the WEB console.
 
 # Links to documentation
 
-* **Examples**: [https://github.com/dart-lang/angular/tree/master/examples](https://github.com/dart-lang/angular/tree/master/examples)
-* **AngularDart Components**: [https://webdev.dartlang.org/angular/components](https://webdev.dartlang.org/angular/components)
-* **Template Syntax**: [https://webdev.dartlang.org/angular/guide/template-syntax](https://webdev.dartlang.org/angular/guide/template-syntax)
-* **NgModel**: [https://angular.io/api/forms/NgModel#description](https://angular.io/api/forms/NgModel#description)
+* **Examples**: [https://github.com/dart-lang/angular/tree/master/examples](https://github.com/dart-lang/angular/tree/master/examples).
+* **AngularDart Components**: [https://webdev.dartlang.org/angular/components](https://webdev.dartlang.org/angular/components).
+* **Template Syntax**: [https://webdev.dartlang.org/angular/guide/template-syntax](https://webdev.dartlang.org/angular/guide/template-syntax).
+* **NgModel**: [https://angular.io/api/forms/NgModel#description](https://angular.io/api/forms/NgModel#description).
 * **Core directives**: [https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant
-](https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant)
-* **User input**: [https://webdev.dartlang.org/angular/guide/user-input](https://webdev.dartlang.org/angular/guide/user-input)
-* **Directives for forms**: see the file [directives.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives.dart)
+](https://webdev.dartlang.org/api/angular/angular/coreDirectives-constant).
+* **User input**: [https://webdev.dartlang.org/angular/guide/user-input](https://webdev.dartlang.org/angular/guide/user-input).
+* **Directives for forms**: see the file [directives.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives.dart).
 * **DOM events reference**: [https://developer.mozilla.org/en-US/docs/Web/Events](https://developer.mozilla.org/en-US/docs/Web/Events).
 * **Life cycle for components and directives**: [https://webdev.dartlang.org/angular/guide/lifecycle-hooks](https://webdev.dartlang.org/angular/guide/lifecycle-hooks).
-* **Attribute directives**: [https://webdev.dartlang.org/angular/guide/attribute-directives](https://webdev.dartlang.org/angular/guide/attribute-directives)
-* [**@HostListener**](https://webdev.dartlang.org/api/angular/angular/HostListener-class).
-* [**@Input**](https://webdev.dartlang.org/api/angular/angular/Input-class)
-
+* **Attribute directives**: [https://webdev.dartlang.org/angular/guide/attribute-directives](https://webdev.dartlang.org/angular/guide/attribute-directives).
+* **exportAs**: [https://webdev.dartlang.org/api/angular/angular/Directive/exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs).
+* **@HostListener**:[https://webdev.dartlang.org/api/angular/angular/HostListener-class](https://webdev.dartlang.org/api/angular/angular/HostListener-class).
+* **@Input**: [https://webdev.dartlang.org/api/angular/angular/Input-class](https://webdev.dartlang.org/api/angular/angular/Input-class).
