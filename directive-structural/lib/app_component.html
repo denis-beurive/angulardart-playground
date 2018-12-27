@@ -1,3 +1,56 @@
 
 
-<div *myLister="let list From ['a', 'b', 'c']"></div>
+<!--
+    WARNING: do not end the directive expression with a semicolon (";").
+             A semicolon at the end of the expression triggers tons of errors.
+             And, at least for the version of the ecosystem given below, these errors are difficult to "remove".
+             Removing the semicolon is not enough... See: https://github.com/dart-lang/angular/issues/1696
+             * Dart SDK Version: Dart VM version: 2.1.0 (Unknown timestamp) on "linux_x64"
+             * AngularDart Version: 5.0.0
+-->
+
+<!--
+
+    "data" and "getData()" are defined within the component class.
+
+-->
+
+<!-- This creates the template variables "let-d". -->
+<div *myLister="let d=data"></div>
+
+<!-- This creates the template variable "let-d". -->
+<div *myLister="let d=[1,2,3]"></div>
+
+<!-- This creates the template variable "let-d". -->
+<div *myLister="let d=getData()"></div>
+
+<!-- This creates the template variables "let-d" and the variable "let-name". -->
+<div *myLister="let d=[1,2,3]; let name='Toto'"></div>
+
+<!--
+
+    "myListerFrom" is defined within the directive class.
+    "myListerFrom" gets assigned the value ['a', 'b', 'c'].
+    The variable "list" is bound to the directive property "myListerFrom".
+
+
+    "myListerEvenColor" is defined within the directive class.
+    "myListerEvenColor" gets assigned the value "#FF0000".
+
+-->
+
+<!-- This creates the template variable "let-list". -->
+<div *myLister="let list from ['a', 'b', 'c']"></div>
+
+<div *myLister="let list from ['a', 'b', 'c']; evenColor: '#FF0000'"></div>
+
+<div *myLister="let list from ['a', 'b', 'c']; evenColor: '#FF0000'; let ec=evenColor"></div>
+
+<!--
+    Let mix the declarations.
+-->
+
+<!-- This creates the template variable "let-list" and "let-d". -->
+<div *myLister="let list from ['a', 'b', 'c']; let d=[1, 2, 3]"></div>
+
+
