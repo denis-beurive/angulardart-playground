@@ -1,37 +1,32 @@
 # Warnings
 
-## Be aware of the nasty comma!
+## Make sure to use the last version of build_runner
 
-**The presence or the absence** of A single comma can generate tons of errors! For example, let's consider the code below:
+See: [https://github.com/dart-lang/angular/issues/1696](https://github.com/dart-lang/angular/issues/1696) and [https://github.com/dart-lang/webdev/issues/79](https://github.com/dart-lang/webdev/issues/79).
 
-    @Component(
-      selector: 'app-component',
-      templateUrl: 'app_component.html',
-    )
+Make sure that you have the last version of `build_runner`.
+Otherwise you may run into very annoying bugs.
 
-This code will generate tons of errors!
+    $ pub deps | grep build_runner
 
-    [SEVERE] build_web_compilers|ddc on lib/app_component.template.dartdevc.module (cached):
-    Error compiling dartdevc module:myapp|lib/app_component.template.ddc.js
+Go get the last version number od the tool `build_runner` [here](https://pub.dartlang.org/packages/build_runner).
 
-    [error] Target of URI doesn't exist: 'package:angular/angular.dart'. (package:myapp/app_component.dart, line 1, col 8)
-    [error] The imported library ''package:angular/angular.dart'' can't have a part-of directive. (package:myapp/app_component.dart, line 1, col 8)
-    [error] Undefined name 'Component' used as an annotation. (package:myapp/app_component.dart, line 4, col 1)
-    [error] Target of URI doesn't exist: 'package:angular/angular.dart'. (package:myapp/app_component.template.dart, line 8, col 8)
-    ...
+Assuming that the last version is `1.1.2`, change your file `pubspec.yaml`.
 
-Just **remove or add** the last comma and everything works fine!
+    dev_dependencies:
+        angular_test: ^2.0.0-beta+2
+        build_runner: ^1.1.2
+        build_test: ^0.10.3+1
+        build_web_compilers: ^0.4.1
+        pageloader: ^3.0.0-beta
+        test: ^1.3.0
 
-    @Component(
-      selector: 'app-component',
-      templateUrl: 'app_component.html'
-    )
+Then execute the commands below:
 
-> **BIG NOTICE !!!**
-> Please not that this behaviour is **not systematic**. Once you made a modification
-> (by adding or removing the last comma), you can undo what you did (if you added a
-> comma, then you can remove it)... and the errors don't reappear ! This point out
-> to a possible problem with a cache somewhere (within the transpiler tools chain).
+    $ pub upgrade
+    $ pub deps | grep build_runner
+    |-- build_runner 1.1.2
+    |   |-- build_runner_core 1.1.2
 
 ## Make sure to export the built-in directives
 
