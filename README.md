@@ -28,54 +28,32 @@ This repository contains some code I developed while learning AngularDart.
 
 # Important note: please read
 
-It seems that the utility `webdev` is buggy. And **the bug can make you lose lots of time !** (until you figure out what's the real problem - and, as you will notice, _it's not at all obvious_).
+See: [https://github.com/dart-lang/angular/issues/1696](https://github.com/dart-lang/angular/issues/1696)
 
-Let's say that you instantiate a "metadata" (to implement a component or a directive, for example). You write something like:
+Make sure that you have the last version of `build_runner`.
+Otherwise you may run into very annoying bugs.
 
-    @Component(
-        selector: 'app-component',
-        templateUrl: 'app_component.html',
-        directives: [MyListerDirective]
-    )
-    class AppComponent {
+    $ pub deps | grep build_runner
 
-    }
+Go get the last version number od the tool `build_runner` [here](https://pub.dartlang.org/packages/build_runner).
 
-Everything compiles... you are happy.
+Assuming that the last version is `1.1.2`, change your file `pubspec.yaml`.
 
-You change something in your code, in another file... And, suddenly, you get tons of errors ! Your first reaction is to look at your last changes. But everything seems OK. You restart the CLI command `webdev serve`... maybe there is something that needs to be reinitialised somewhere. Nothing changes. You still have tons of errors !
+    dev_dependencies:
+        angular_test: ^2.0.0-beta+2
+        build_runner: ^1.1.2
+        build_test: ^0.10.3+1
+        build_web_compilers: ^0.4.1
+        pageloader: ^3.0.0-beta
+        test: ^1.3.0
 
-Then, your intuition tells you to add a comma in the declaration :
+Then execute the commands below:
 
-    @Component(
-        selector: 'app-component',
-        templateUrl: 'app_component.html',
-        directives: [MyListerDirective],
-    )
-    class AppComponent {
+    $ pub upgrade
+    $ pub deps | grep build_runner
+    |-- build_runner 1.1.2
+    |   |-- build_runner_core 1.1.2
 
-    }
-
-Do you see the difference ?
-
-> How does your intuition find out ? You have no idea. But the code compiles all right !
-
-Everything compiles !
-
-And that's not the end of the story. Now you remove the comma you've just added.
-
-    @Component(
-        selector: 'app-component',
-        templateUrl: 'app_component.html',
-        directives: [MyListerDirective]
-    )
-    class AppComponent {
-
-    }
-
-And guess what : it compiles all right !
-
-Seems pretty inconsistent, doesn't it ?
 
 # Notes
 
