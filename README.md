@@ -28,7 +28,7 @@ This repository contains some code I developed while learning AngularDart.
 
 # Important note: please read
 
-See: [https://github.com/dart-lang/angular/issues/1696](https://github.com/dart-lang/angular/issues/1696)
+See: [https://github.com/dart-lang/angular/issues/1696](https://github.com/dart-lang/angular/issues/1696) and [https://github.com/dart-lang/webdev/issues/79](https://github.com/dart-lang/webdev/issues/79).
 
 Make sure that you have the last version of `build_runner`.
 Otherwise you may run into very annoying bugs.
