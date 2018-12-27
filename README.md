@@ -134,6 +134,10 @@ Components are placed in the subdirectory "`lib`". And the main entry point (ind
 
 > Please note that the command will replace all characters "-" by characters "\_" in the name of the project. It does it because the given project name is used within the configure file "`pubspec.yaml`" (see the parameter "`name`").
 
+## Check the versions of the build tools
+
+    $ pub deps
+
 ## Updating the application package
 
 Each time the file `pubspec.yaml` is edited, the command below must be run:
