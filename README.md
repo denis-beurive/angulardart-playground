@@ -28,6 +28,8 @@ This repository contains some code I developed while learning AngularDart.
 
 # Important note: please read
 
+## Make sure to use the last version of "build_runner"
+
 See: [https://github.com/dart-lang/angular/issues/1696](https://github.com/dart-lang/angular/issues/1696) and [https://github.com/dart-lang/webdev/issues/79](https://github.com/dart-lang/webdev/issues/79).
 
 Make sure that you have the last version of `build_runner`.
@@ -54,6 +56,9 @@ Then execute the commands below:
     |-- build_runner 1.1.2
     |   |-- build_runner_core 1.1.2
 
+## Read how to use Chrome to debug Agular applications
+
+Read [Debugging Dart Web Apps](https://webdev.dartlang.org/guides/debugging).
 
 # Notes
 
@@ -126,6 +131,16 @@ Components are placed in the subdirectory "`lib`". And the main entry point (ind
 
 ## Create a new AngularDart project
 
+You can do it by either using `stagehand` or `ngdart`.
+
+### stagehand
+
+    mkdir project_name
+    cd project_name
+    stagehand web-angular
+
+### ngdart
+
     ngdart new project_name
     cd project_name
     pub get
@@ -187,3 +202,5 @@ If an error occurred, details about the error is written into the WEB console.
 * **@HostListener**:[https://webdev.dartlang.org/api/angular/angular/HostListener-class](https://webdev.dartlang.org/api/angular/angular/HostListener-class).
 * **@Input**: [https://webdev.dartlang.org/api/angular/angular/Input-class](https://webdev.dartlang.org/api/angular/angular/Input-class).
 * **Validators**: [https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart).
+* **Debugging Dart Web Apps**: [https://webdev.dartlang.org/guides/debugging](https://webdev.dartlang.org/guides/debugging).
+
