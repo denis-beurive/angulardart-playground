@@ -24,7 +24,8 @@ This repository contains some code I developed while learning AngularDart.
   * The use of the @Directive property [exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs).
   * The use of the directive [@HostListener](https://webdev.dartlang.org/api/angular/angular/HostListener-class).
   * The use of the directive [@Input](https://webdev.dartlang.org/api/angular/angular/Input-class).
-* [Structural directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-structural).
+* [Structural directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-structural). This includes:
+  * The use of "input template variables"... although I prefer the appellation "input _directive_ template variables", since there are two kinds of templates: **component templates** and **(structural) directive templates**. A clear distinction makes things clearer.
 
 # Important note: please read
 
