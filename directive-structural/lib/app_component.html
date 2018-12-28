@@ -1,13 +1,4 @@
 <!--
-    WARNING: do not end the directive expression with a semicolon (";").
-             A semicolon at the end of the expression triggers tons of errors.
-             And, at least for the version of the ecosystem given below, these errors are difficult to "remove".
-             Removing the semicolon is not enough... See: https://github.com/dart-lang/angular/issues/1696
-             * Dart SDK Version: Dart VM version: 2.1.0 (Unknown timestamp) on "linux_x64"
-             * AngularDart Version: 5.0.0
--->
-
-<!--
 
     Template input variables
     ========================
@@ -19,71 +10,30 @@
 
     https://webdev.dartlang.org/angular/guide/structural-directives#template-input-variable:
 
-        The variable’s scope is limited to a single instance of the repeated template. You can use the same variable name
-        again in the definition of other structural directives.
-
-    In the code below, we create template input variables. Within the directive template, the names used within the
-    microsyntax expressions will be prefixed by "let-".
-
-    For example, let's consider the following microsyntax expression: "let d=[1,2,3]"
-    We create a template input variable called "d". It gets assigned the value [1,2,3].
-    Within the directive template, it is named "let-d".
-
-    Note: "data" and "getData()" are defined within the component class.
+        The [template input] variable’s scope is limited to a single instance of the repeated template. You can use the
+        same variable name again in the definition of other structural directives.
 
 -->
 
-<!-- This creates the template variables "let-d". -->
-<div *myDummy="let d=data">
-    This is a dummy test. {{d.toString()}}
+<!--
+
+    The values of the template input variables "d" and "v" will be set by the directive instance.
+        _viewContainer.get(0).setLocal('data', 'MyDummyDirective.data');
+        _viewContainer.get(0).setLocal('var', 'This is ' + variable);
+
+    The variable name "variable" makes reference to the property "myDummyVariable" of the directive instance.
+    *myDummy="variable:'value'" makes references to myDummyVariable.
+
+        @Input('myDummyVariable')
+        String variable;
+
+    However, within the template, "data" makes reference to "AppComponent:data"!
+-->
+<div *myDummy="let d=data; variable:'value from the lib/app_component.html'; let v=var">
+        <p>This is a dummy directive.</p>
+        <ul>
+            <li><b>d</b>=<code>{{d.toString()}}</code></li>
+            <li><b>data</b>=<code>{{data}}</code> (makes reference to the instance of AppComponent)</li>
+            <li><b>v</b>=<code>{{v}}</code></li>
+        </ul>
 </div>
-
-<!-- This creates the template variable "let-d". -->
-<div *myDummy="let d=[1,2,3]">
-    This is a dummy test. {{d.toString()}}
-</div>
-
-<!-- This creates the template variable "let-d". -->
-<div *myDummy="let d=getData()">
-</div>
-
-<!-- This creates the template variables "let-d" and the variable "let-name". -->
-<div *myDummy="let d=[1,2,3]; let name='Toto'"></div>
-
-<!--
-
-    "myListerFrom" is defined within the directive class.
-    "myListerFrom" gets assigned the value ['a', 'b', 'c'].
-    The variable "list" is bound to the directive property "myListerFrom".
-
-    "myListerEvenColor" is defined within the directive class.
-    "myListerEvenColor" gets assigned the value "#FF0000".
-
--->
-
-<!--
-    The value ['a', 'b', 'c'] gets assigned to the property "listFrom" (through the setter "myListerFrom").
--->
-<div *myLister="from: ['a', 'b', 'c']"></div>
-
-<!--
-    The value ['a', 'b', 'c'] gets assigned to the property "listFrom" (through the setter "myListerFrom").
-    The value '#FF0000' gets assigned to the property "evenColor" (through the setter "myListerEvenColor").
--->
-<div *myLister="from: ['a', 'b', 'c']; evenColor: '#FF0000'"></div>
-
-<!-- This creates the template variable "let-list". -->
-<div *myLister="let list from ['a', 'b', 'c']"></div>
-
-<div *myLister="let list from ['a', 'b', 'c']; evenColor: '#FF0000'"></div>
-
-<div *myLister="let list from ['a', 'b', 'c']; evenColor: '#FF0000'; let ec=evenColor"></div>
-
-<!--
-    Let mix the declarations.
--->
-
-<!-- This creates the template variable "let-list" and "let-d". -->
-<div *myLister="let list from ['a', 'b', 'c']; let d=[1, 2, 3]"></div>
-
-

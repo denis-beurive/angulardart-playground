@@ -7,22 +7,26 @@ import 'package:angular/angular.dart';
 )
 
 class MyDummyDirective implements OnInit {
-  // See "TemplateRef and ViewContainerRef" at https://webdev.dartlang.org/angular/guide/structural-directives.
   TemplateRef _templateRef;
   ViewContainerRef _viewContainer;
 
+  @Input('myDummyVariable')
+  String variable;
+
   MyDummyDirective(TemplateRef templateRef, ViewContainerRef viewContainer) {
+    print("One instance of MyDummyDirective is instantiated.");
     _templateRef = templateRef;
     _viewContainer = viewContainer;
+
+    _viewContainer.createEmbeddedView(_templateRef);
+    print("_viewContainer.length = ${_viewContainer.length.toString()}");
+    _viewContainer.get(0).setLocal('data', 'MyDummyDirective.data');
+
   }
 
-  @Input('let-d')
-  List<int> d;
-
   void ngOnInit() {
-    print("One instance of MyDummyDirective is instantiated.");
-    EmbeddedViewRef vr = _viewContainer.createEmbeddedView(_templateRef);
-    vr.setLocal('d', [1,2,3]);
-    print(d.toString());
+    // WARNING: the property "variable" has no value assigned within the constructor.
+    print('MyDummyDirective.variable = ${variable}');
+    _viewContainer.get(0).setLocal('var', 'This is ' + variable);
   }
 }
