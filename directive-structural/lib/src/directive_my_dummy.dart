@@ -37,6 +37,10 @@ class MyDummyDirective implements OnInit {
     _viewContainer.get(0).setLocal('data', 'MyDummyDirective.data');
   }
 
+  /// [ngOnInit] is called right after the component or directive's data-bound
+  /// properties have been checked for the first time, and before any of its
+  /// children have been checked. It is normally only invoked once when the
+  /// directive is instantiated.
   void ngOnInit() {
     // WARNING: the properties "variable" and "of" have no value assigned within
     //          the constructor.
