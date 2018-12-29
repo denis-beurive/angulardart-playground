@@ -3,37 +3,101 @@
     Template input variables
     ========================
 
+    First note: the appellation "directive template input variables" seems better suited than "template input variables".
+                That way, we make a clear distinction between the "component template" and the (structural) "directive template".
+
     https://webdev.dartlang.org/angular/guide/template-syntax:
 
-        A template reference variable (#phone) is not the same as a template input variable (let phone) such as you might
-        see in an *ngFor.
+        A (directive) template reference variable (#phone) is not the same as a template input variable (let phone) such
+        as you might see in an *ngFor.
 
     https://webdev.dartlang.org/angular/guide/structural-directives#template-input-variable:
 
-        The [template input] variable’s scope is limited to a single instance of the repeated template. You can use the
-        same variable name again in the definition of other structural directives.
+        The [(directive) template input] variable’s scope is limited to a single instance of the repeated template.
+        You can use the same variable name again in the definition of other structural directives.
 
+    Directive local names
+    =====================
+
+    This appellation does not come from the official documentation. However, it seems interesting to "coin" it.
+
+    Indeed, when you start learning about structural directives the problem is that the same words are used for different
+    things. The word "template" is a good example: it may make reference to the component template, or to the (structural)
+    directive template. That IS confusing, since you may adopt the wrong point of view.
+
+    So, let's define a "directive local name": a "directive local name" references a value that can be
+    assigned to a "directive template input variables".
+
+    A "directive local name", as its name suggests, is defined within the context of the directive. It only makes sense
+    in this context. It is "local" to the (structural) directive.
+
+    You create a "directive local name" like this:
+
+        _viewContainer.get(0).setLocal('directive_local_name', the_value);
+
+    And you assign it to a "directive template input variable" like this:
+
+        <div *myDummy="let d=directive_local_name">
+
+    Note: "d" is a "directive template input variable", and its value will be "the_value".
+
+    What is $implicit ?
+    ===================
+
+    The name "$implicit" is a special "directive local name" which value is automatically assigned to a designated
+    "directive template input variable".
+
+    This special "directive local name" makes reference to this syntax:
+
+        <div *myDummy="let color of getColors();...">...</div>
+
+    The value of the "directive template input variable" "color" gets assigned to the value carried by the
+    "directive local name" "$implicit".
+
+    If:   @Input('myDummyOf')
+          List<String> of;
+          ...
+          _viewContainer.get(0).setLocal('\$implicit', of);
+
+    And:  *myDummy="let color of getColors();"
+
+    Then: the value of "color" will be the value returned by the call to the method "getColor".
 -->
 
 <!--
 
-    The values of the template input variables "d" and "v" will be set by the directive instance.
+    The values of the input (directive) template variables "d" and "v" will be set by the directive instance.
+
         _viewContainer.get(0).setLocal('data', 'MyDummyDirective.data');
         _viewContainer.get(0).setLocal('var', 'This is ' + variable);
 
     The variable name "variable" makes reference to the property "myDummyVariable" of the directive instance.
-    *myDummy="variable:'value'" makes references to myDummyVariable.
+    *myDummy="variable:'value'" makes references to "myDummyVariable".
 
         @Input('myDummyVariable')
         String variable;
 
-    However, within the template, "data" makes reference to "AppComponent:data"!
+    The variable name "of" makes reference to the property "myDummyOf" of the directive instance.
+
+        @Input('myDummyOf')
+        List<String> of;
+
+    However, the "color" case is different. "color" is a "directive template input variable" that makes reference to
+    directive local name "$implicit".
+
+        _viewContainer.get(0).setLocal('\$implicit', of);
+
+    Note: here we've set the value of "$implicit" to the value of "of". But, technically speaking, we could have set it
+          to any value.
+
+    However, within the (structural) directive template, "data" makes reference to "AppComponent.data"!
 -->
-<div *myDummy="let d=data; variable:'value from the lib/app_component.html'; let v=var">
+<div *myDummy="let color of getColors(); let d=data; variable:'value from the lib/app_component.html'; let v=var">
         <p>This is a dummy directive.</p>
         <ul>
             <li><b>d</b>=<code>{{d.toString()}}</code></li>
             <li><b>data</b>=<code>{{data}}</code> (makes reference to the instance of AppComponent)</li>
             <li><b>v</b>=<code>{{v}}</code></li>
+            <li><b>color</b>=<code>{{color}}</code></li>
         </ul>
 </div>
