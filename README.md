@@ -28,8 +28,7 @@ This repository contains some code I developed while learning AngularDart.
   * The use of "input template variables"... although I prefer the appellation "input _directive_ template variables", since there are two kinds of templates: **component templates** and **(structural) directive templates**. A clear distinction makes things clearer.
   * The concept of "directive local name". This appellation does not come from the official documentation. However, it seems interesting to "coin" it. Indeed, when you start learning about structural directives the problem is that the same words are used for different things. That IS confusing, since you may adopt the wrong point of view.
   * The `$implicit` "directive local name".
-  * The technique used to create several copies of the (structural) directive template.
-
+  * The technique used to create several copies of the (structural) directive template. See the directive "[myRepeater](https://github.com/denis-beurive/angulardart-playground/blob/master/directive-structural/lib/src/directive_my_repeater.dart)".
 
 # Important note: please read
 
