@@ -13,32 +13,33 @@ class MyDummyDirective implements DoCheck {
 
   // This line makes reference to the statement below (within the component template):
   //
-  //     <div *myDummy="...; variable:'value'; ...">
+  //     <div *myDummy="...; position:index; ...">
   //
-  // The alias "myDummyVariable" comes from the following elements:
+  // The data-bound property alias "myDummyPosition" comes from the following elements:
   // * The name of the directive within the context of the component template (that is, "myDummy").
-  // * The name of the directive configuration parameter ("variable"), as seen from the component template.
+  // * The name of the directive data-bound property ("position"), as seen from the component template.
   //
-  // "myDummy" + ucfirst("variable") => myDummyVariable
+  // "myDummy" + ucfirst("position") => myDummyPosition
   //
   // Note: "ucfirst" makes reference to PHP (http://php.net/manual/en/function.ucfirst.php).
 
   @Input('myDummyPosition') // This is an alias that makes sense in the template.
-  int position; // This is a data-bound property.
+  int dbp_position; // This is a data-bound property.
 
   @Input('myDummyOf') // This is an alias that makes sense in the template.
-  List<String> of; // This is a data-bound property.
+  List<String> dbp_of; // This is a data-bound property.
 
   MyDummyDirective(this._templateRef, this._viewContainer);
 
   /// What does "ngDoCheck" do ?
   ///
   /// The presence of the hook "ngDoCheck" tells Angular to watch for any change
-  /// on the values of the data bound properties of the directive. If the value
-  /// of a data bound property changes, then the hook is executed.
+  /// on the values of the directive data-bound properties of the directive.
+  /// If the value of a directive data-bound property changes, then the hook is
+  /// executed.
   ///
   /// Note: here, we have 2 data-bound properties:
-  ///       - variable
+  ///       - position
   ///       - of
   ///
   /// What would happen if you choose to use the hook "ngOnInit" instead of
@@ -47,15 +48,19 @@ class MyDummyDirective implements DoCheck {
   /// will just have no effect.
 
   void ngDoCheck() {
-    print('MyDummyDirective.position = ${position}');
-    print('MyDummyDirective.of = ${of}');
+    print('MyDummyDirective.position = ${dbp_position}');
+    print('MyDummyDirective.of = ${dbp_of}');
+
     if (!_initialized) {
       _viewContainer.createEmbeddedView(_templateRef);
       _initialized = true;
     }
 
+    // "directive_id" is a "directive local name".
     _viewContainer.get(0).setLocal('directive_id', 'MyDummyDirective');
-    _viewContainer.get(0).setLocal('pos', position);
-    _viewContainer.get(0).setLocal('\$implicit', of[position]);
+    // "pos" is a "directive local name".
+    _viewContainer.get(0).setLocal('pos', dbp_position);
+    // "$implicit" is a "directive local name".
+    _viewContainer.get(0).setLocal('\$implicit', dbp_of[dbp_position]);
   }
 }
