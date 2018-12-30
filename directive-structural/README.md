@@ -56,8 +56,8 @@ Indeed, when you start learning about structural directives the problem is that 
 things. The word "template" is a good example: it may make reference to the component template, or to the (structural)
 directive template. That IS confusing, since you may adopt the wrong point of view.
 
-So, let's define a "directive local name": a "directive local name" references a value that can be
-assigned to a _directive template input variables_.
+So, let's define the appellation "directive local name": a "directive local name" references a value that can be assigned
+to a _directive template input variables_.
 
 > A "directive local name", as its name suggests, is defined within the context of the directive. It only makes sense
 > in this context. It is "local" to the (structural) directive.
@@ -98,6 +98,10 @@ And:
     *myDummy="let color of getColors();"
 
 Then: the value of "`color`" will be the value returned by the call to the method "`getColor`".
+
+# Summary
+
+![Illustration](illustration.bmp)
 
 # Links
 
