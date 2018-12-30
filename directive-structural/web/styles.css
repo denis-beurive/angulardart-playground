@@ -12,3 +12,12 @@ h2, h3 {
 body {
   margin: 2em;
 }
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}

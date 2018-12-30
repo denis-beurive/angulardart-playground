@@ -49,7 +49,7 @@
 
     This special "directive local name" makes reference to this syntax:
 
-        <div *myDummy="let color of getColors();...">...</div>
+        <div *myDummy="let color of colors;...">...</div>
 
     The value of the "directive template input variable" "color" gets assigned to the value carried by the
     "directive local name" "$implicit".
@@ -57,16 +57,28 @@
     If:   @Input('myDummyOf')
           List<String> of;
           ...
-          _viewContainer.get(0).setLocal('\$implicit', of);
+          _viewContainer.get(0).setLocal('\$implicit', of[position]);
 
-    And:  *myDummy="let color of getColors();"
+    And:  *myDummy="let color of colors;"
 
-    Then: the value of "color" will be the value returned by the call to the method "getColor".
+    Then: the value of "color" will be one element of the list "colors".
 -->
 
 <!--
 
     The values of the input (directive) template variables "d" and "v" will be set by the directive instance.
+
+    Let's consider the lines below:
+
+        _viewContainer.get(0).setLocal('directive_id', 'MyDummyDirective');
+        _viewContainer.get(0).setLocal('pos', position);
+        _viewContainer.get(0).setLocal('\$implicit', of[position]);
+
+    These lines defines 3 input (directive) template variables:
+
+        - directive_id
+        - pos
+        - $implicit
 
         _viewContainer.get(0).setLocal('data', 'MyDummyDirective.data');
         _viewContainer.get(0).setLocal('var', 'This is ' + variable);
@@ -92,14 +104,13 @@
 
     However, within the (structural) directive template, "data" makes reference to "AppComponent.data"!
 -->
-<div *myDummy="let color of getColors(); let d=data; variable:'value from the lib/app_component.html'; let v=var">
-        <p>This is a dummy directive.</p>
-        <ul>
-            <li><b>d</b>=<code>{{d.toString()}}</code></li>
-            <li><b>data</b>=<code>{{data}}</code> (makes reference to the instance of AppComponent)</li>
-            <li><b>v</b>=<code>{{v}}</code></li>
-            <li><b>color</b>=<code>{{color}}</code></li>
-        </ul>
+<div *myDummy="let color of colors; position:index; let index=pos; let id=directive_id">
+    <p>This this the template for the directive <code>{{id}}</code>.</p>
+    <table>
+        <tr><th>identifier</th><th>value</th></tr>
+        <tr><td>index</td><td>{{index}}</td></tr>
+        <tr><td>color</td><td>{{color}}</td></tr>
+    </table>
 </div>
 
 <ul *myRepeater="count: 5; let i=index">

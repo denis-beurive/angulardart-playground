@@ -6,9 +6,10 @@ import 'package:angular/angular.dart';
     selector: '[myDummy]'
 )
 
-class MyDummyDirective implements OnInit {
+class MyDummyDirective implements DoCheck {
   TemplateRef _templateRef;
   ViewContainerRef _viewContainer;
+  bool _initialized = false;
 
   // This line makes reference to the statement below (within the component template):
   //
@@ -21,32 +22,40 @@ class MyDummyDirective implements OnInit {
   // "myDummy" + ucfirst("variable") => myDummyVariable
   //
   // Note: "ucfirst" makes reference to PHP (http://php.net/manual/en/function.ucfirst.php).
-  @Input('myDummyVariable')
-  String variable;
 
-  // Same comment that for "myDummyVariable".
-  @Input('myDummyOf')
-  List<String> of;
+  @Input('myDummyPosition') // This is an alias that makes sense in the template.
+  int position; // This is a data-bound property.
 
-  MyDummyDirective(TemplateRef templateRef, ViewContainerRef viewContainer) {
-    print("One instance of MyDummyDirective is instantiated.");
-    _templateRef = templateRef;
-    _viewContainer = viewContainer;
-    _viewContainer.createEmbeddedView(_templateRef);
-    print("_viewContainer.length = ${_viewContainer.length.toString()}");
-    _viewContainer.get(0).setLocal('data', 'MyDummyDirective.data');
-  }
+  @Input('myDummyOf') // This is an alias that makes sense in the template.
+  List<String> of; // This is a data-bound property.
 
-  /// [ngOnInit] is called right after the component or directive's data-bound
-  /// properties have been checked for the first time, and before any of its
-  /// children have been checked. It is normally only invoked once when the
-  /// directive is instantiated.
-  void ngOnInit() {
-    // WARNING: the properties "variable" and "of" have no value assigned within
-    //          the constructor.
-    print('MyDummyDirective.variable = ${variable}');
+  MyDummyDirective(this._templateRef, this._viewContainer);
+
+  /// What does "ngDoCheck" do ?
+  ///
+  /// The presence of the hook "ngDoCheck" tells Angular to watch for any change
+  /// on the values of the data bound properties of the directive. If the value
+  /// of a data bound property changes, then the hook is executed.
+  ///
+  /// Note: here, we have 2 data-bound properties:
+  ///       - variable
+  ///       - of
+  ///
+  /// What would happen if you choose to use the hook "ngOnInit" instead of
+  /// "[ngDoCheck]" ? If you use "ngOnInit", then the host element will be modified
+  /// **only once** by the structural directive. Any change to a data-bound property
+  /// will just have no effect.
+
+  void ngDoCheck() {
+    print('MyDummyDirective.position = ${position}');
     print('MyDummyDirective.of = ${of}');
-    _viewContainer.get(0).setLocal('var', 'This is ' + variable);
-    _viewContainer.get(0).setLocal('\$implicit', of);
+    if (!_initialized) {
+      _viewContainer.createEmbeddedView(_templateRef);
+      _initialized = true;
+    }
+
+    _viewContainer.get(0).setLocal('directive_id', 'MyDummyDirective');
+    _viewContainer.get(0).setLocal('pos', position);
+    _viewContainer.get(0).setLocal('\$implicit', of[position]);
   }
 }
