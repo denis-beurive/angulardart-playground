@@ -2,11 +2,27 @@
 
 This application shows how to create a structural directive.
 
+But, first, it seems important to detail some terms that are used within the various documents you can read on the Internet. 
+
+# Data-bound property
+
+A (directive) _data-bound property_ is a directive class property that is annotated by the 
+[metadata](https://www.dartlang.org/guides/language/language-tour#metadata) [@Input](https://webdev.dartlang.org/api/angular/angular/Input-class).
+
+Example:
+
+    @Input('myDummyPosition') // This is an alias that makes sense in the template.
+    int dbp_position; // This is a data-bound property.
+    
+    @Input('myDummyOf') // This is an alias that makes sense in the template.
+    List<String> dbp_of; // This is a data-bound property.
+
 # Input template variable
 
 ## What is an input template variable ?
 
-The [official documentation](https://webdev.dartlang.org/angular/guide/structural-directives) is not pretty clear on the matter.
+The [official documentation](https://webdev.dartlang.org/angular/guide/structural-directives) is not pretty clear on that
+matter.
 
 First, there are two entities that we call "template":
 
@@ -22,14 +38,24 @@ I'll use the appellation "**input directive template variable**" instead of "inp
 
 Now, it's clear. The role of an _input directive template variable_ is to configure a (structural) _directive template_.
 
+Example of input directive template variable:
+
+    <div *myDummy="let input_directive_template_variable=directive_local_name">
+    
+Here, we declare an _input directive template variable_ called `input_directive_template_variable`.
+And we affect a value to this _input directive template variable_.
+
+> This value cannot be a Dart expression (such as `12`, `['a', 'c']`, `getData()`...).
+> The _identifier_ `directive_local_name` represents a _directive local name_ (please see below).
+
 ## Where does the value of an input (directive) template variable come from ?
 
 Where does the value of an _input directive template variable_ come from ?
 
 The answer is: the value of an _input directive template variable_ gets assigned within the directive object.
 You cannot define the value of an _input directive template variable_ directly within the component template.
-For example, the code `<div *myDummy="let d=10">` below will **NOT** assign the value 10 to the (input directive template)
-variable `d`.
+For example, the code `<div *myDummy="let d=10">` below will **NOT** assign the value 10 to the _input directive template
+variable_ `d`.
 
 The value of the _input directive template variable_ is assigned from within the directive instance.
 For example:
@@ -44,7 +70,7 @@ And you write, within the component template:
 
     <div *myDummy="let d=data">
 
-> The value of an _input directive template variable_ is carried by a "directive local name". See the next section.
+> The value of an _input directive template variable_ is carried by a "_directive local name_". See the next section.
 
 # Directive local names
 
@@ -56,7 +82,7 @@ Indeed, when you start learning about structural directives the problem is that 
 things. The word "template" is a good example: it may make reference to the component template, or to the (structural)
 directive template. That IS confusing, since you may adopt the wrong point of view.
 
-So, let's define the appellation "directive local name": a "directive local name" references a value that can be assigned
+So, let's define the appellation "directive local name": a _directive local name_ references a value that can be assigned
 to a _directive template input variables_.
 
 > A "directive local name", as its name suggests, is defined within the context of the directive. It only makes sense
@@ -64,15 +90,15 @@ to a _directive template input variables_.
 
 ## Where does the value carried by a "directive local name" come from ?
 
-You create a "directive local name" like this:
+You create a _directive local name_ like this:
 
-    _viewContainer.get(0).setLocal('directive_local_name', the_value);
+    _viewContainer.get(0).setLocal('directive_local_name', [10, 20]]);
 
-And you assign it to a "directive template input variable" like this:
+And you assign it to a _directive template input variable_ like this:
 
     <div *myDummy="let d=directive_local_name">
 
-> "d" is a "directive template input variable", and its value will be "the_value".
+> "d" is a _directive template input variable_, and its value (within the context of the template) will be `[10, 20]`.
 
 # What is "$implicit"
 
@@ -84,7 +110,7 @@ This special _directive local name_ makes reference to this syntax:
     <div *myDummy="let color of getColors();...">...</div>
 
 The value of the _directive template input variable_ `color` gets assigned to the value carried by the
-"directive local name" `$implicit`.
+_directive local name_ `$implicit`.
 
 If:
 
@@ -95,9 +121,13 @@ If:
 
 And:
 
-    *myDummy="let color of getColors();"
+    *myDummy="let color of colors; ..."
 
-Then: the value of "`color`" will be the value returned by the call to the method "`getColor`".
+Then:
+
+* the value of the data-bound property `of`, will be the value of the variable `colors`. 
+* the value of `color` will be the value carried by the _directive local name_ `$implicit`.
+  Thus the value of `color` will be the value of the variable `colors`.
 
 # Summary
 
