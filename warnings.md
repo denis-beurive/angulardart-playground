@@ -106,5 +106,19 @@ The code below is OK (see the space after the name of the custom validator):
                         ngControl="fullName"
                         validator-full-name />
 
+## Watch for the empty attribute value that breaks your application !
+
+Your structural directive "\*myDummy" has no data-bound property and does not need any initialisation ?
+
+Well, you may be tempted to write something like:
+
+    <div *myDummy="">...</div>
+
+Don't do that !!! This will end up with a strange error message !
+
+Write this instead:
+
+    <div *myDummy>...</div>  
+
 
                         
