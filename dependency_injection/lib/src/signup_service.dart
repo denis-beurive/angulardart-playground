@@ -1,6 +1,6 @@
 
 
-class MyService {
+class SignUpService {
   bool loginValidator(String login) {
     return login.length > 3 && login.length < 15;
   }
@@ -8,4 +8,5 @@ class MyService {
     return password.length > 10 && password.length < 20;
   }
 }
+
 
