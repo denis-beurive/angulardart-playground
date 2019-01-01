@@ -72,6 +72,18 @@ And you write, within the component template:
 
 > The value of an _input directive template variable_ is carried by a "_directive local name_". See the next section.
 
+## Remark
+
+[https://webdev.dartlang.org/angular/guide/template-syntax](https://webdev.dartlang.org/angular/guide/template-syntax):
+
+> A (directive) template reference variable (#phone) is not the same as a, _input directive template variable_ (let phone) such
+> as you might see in an *ngFor.
+
+https://webdev.dartlang.org/angular/guide/structural-directives#template-input-variable:
+
+> The [_input directive template_] _variable_’s scope is limited to a single instance of the repeated template.
+> You can use the same variable name again in the definition of other structural directives.
+
 # Directive local names
 
 ## What is a directive local name ?
@@ -133,13 +145,23 @@ Then:
 
 ![Illustration](illustration.bmp)
 
+# Hooks and change detections
+
+* **ngDoCheck()**: this hook is executed whenever something changes within the host component.
+* **ngOnChange(Map changes)**: this hook is executed whenever at least one data-bound property changes.
+  The hook receives as parameters a map that lists the states of all data-bound properties (changed or unchanged).
+* **ngAfterChanges()**: this hook is executed whenever at least one data-bound property changes. 
+  Unlike for the hook "onChange", the hook "AfterChanges" does not get details about the changes.
+
+> Please make sure to read this document: [Change Detections](https://webdev.dartlang.org/angular/note/effective/change-detection).
+
 # Links
 
 * [Structural directives](https://webdev.dartlang.org/angular/guide/structural-directives).
-* [Micro syntax](https://gist.github.com/mhevery/d3530294cff2e4a1b3fe15ff75d08855).
+* [Change Detection ](https://webdev.dartlang.org/angular/note/effective/change-detection).
+* [The ngFor directive source code](https://github.com/dart-lang/angular/blob/master/angular/lib/src/common/directives/ng_for.dart).
 * [Understanding Angular Structural Directives](https://netbasal.com/understanding-angular-structural-directives-659acd0f67e).
   This document refers to AngularJS. But the logic is identical for AngularDart.
 * [The Power of Structural Directives in Angular](https://netbasal.com/the-power-of-structural-directives-in-angular-bfe4d8c44fb1).
   This document refers to AngularJS. But the logic is identical for AngularDart.
-* [The ngFor directive source code](https://github.com/dart-lang/angular/blob/master/angular/lib/src/common/directives/ng_for.dart).
-* StackOverflow: [AngularDart: using template input variables in structural directives](https://stackoverflow.com/questions/53958608/angulardart-using-template-input-variables-in-structural-directives).
+* [AfterChanges](https://webdev.dartlang.org/api/angular/angular/AfterChanges-class).

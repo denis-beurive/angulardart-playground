@@ -1,12 +1,24 @@
+// This file implement a (really) dummy structural directive that does nothing
+// interesting, from a functional point of view. It used to illustrates the
+// following concepts:
+//
+// - Data-bound property
+// - Input template variable
+// - Directive local names
+// - The "$implicit" directive local name.
+// - The life cycle hook "ngOnChanges".
+
 import 'package:angular/angular.dart';
 
-// The directive attribute name ("myMsExplorer" in this case) should be spelled
+// The directive attribute name ("myDummy" in this case) should be spelled
 // in lowerCamelCase and begin with a prefix.
 @Directive(
     selector: '[myDummy]'
 )
 
-class MyDummyDirective implements DoCheck {
+// We could (and should) have implemented the interface "AfterChanges".
+// But, for the sake of experimentation, we implement the interface "OnChanges".
+class MyDummyDirective implements OnChanges {
   TemplateRef _templateRef;
   ViewContainerRef _viewContainer;
   bool _initialized = false;
@@ -31,25 +43,13 @@ class MyDummyDirective implements DoCheck {
 
   MyDummyDirective(this._templateRef, this._viewContainer);
 
-  /// What does "ngDoCheck" do ?
-  ///
-  /// The presence of the hook "ngDoCheck" tells Angular to watch for any change
-  /// on the values of the directive data-bound properties of the directive.
-  /// If the value of a directive data-bound property changes, then the hook is
-  /// executed.
-  ///
-  /// Note: here, we have 2 data-bound properties:
-  ///       - position
-  ///       - of
-  ///
-  /// What would happen if you choose to use the hook "ngOnInit" instead of
-  /// "[ngDoCheck]" ? If you use "ngOnInit", then the host element will be modified
-  /// **only once** by the structural directive. Any change to a data-bound property
-  /// will just have no effect.
-
-  void ngDoCheck() {
+  // this hook is executed whenever at least one data-bound property changes.
+  // The hook receives as parameters a map that lists the states of all data-bound
+  // properties (changed or unchanged).
+  void ngOnChanges(Map changes) {
     print('MyDummyDirective.position = ${dbp_position}');
     print('MyDummyDirective.of = ${dbp_of}');
+    print(changes);
 
     if (!_initialized) {
       _viewContainer.createEmbeddedView(_templateRef);
