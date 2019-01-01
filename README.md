@@ -30,6 +30,7 @@ This repository contains some code I developed while learning AngularDart.
   * The `$implicit` "directive local name".
   * The technique used to create several copies of the (structural) directive template. See the directive "[myRepeater](https://github.com/denis-beurive/angulardart-playground/blob/master/directive-structural/lib/src/directive_my_repeater.dart)".
   * Life cycle hooks: ngDoCheck, ngOnChanges, ngAfterChanges. See [this link](https://webdev.dartlang.org/angular/note/effective/change-detection).
+* [Dependency Injection](https://github.com/denis-beurive/angulardart-playground/tree/master/dependency_injection).
 
 # Important note: please read
 
@@ -209,3 +210,6 @@ If an error occurred, details about the error is written into the WEB console.
 * **Validators**: [https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart).
 * **Debugging Dart Web Apps**: [https://webdev.dartlang.org/guides/debugging](https://webdev.dartlang.org/guides/debugging).
 * **Change Detection**: [https://webdev.dartlang.org/angular/note/effective/change-detection](https://webdev.dartlang.org/angular/note/effective/change-detection).
+* **Dependency Injection**: [https://webdev.dartlang.org/angular/guide/dependency-injection](https://webdev.dartlang.org/angular/guide/dependency-injection).
+* **Effective AngularDart: Dependency Injection**: [https://webdev.dartlang.org/angular/note/effective/dependency-injection](https://webdev.dartlang.org/angular/note/effective/dependency-injection).
+* **Pub Dependencies**: [https://www.dartlang.org/tools/pub/dependencies](https://www.dartlang.org/tools/pub/dependencies).
