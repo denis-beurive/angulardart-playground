@@ -29,6 +29,7 @@ This repository contains some code I developed while learning AngularDart.
   * The concept of "directive local name". This appellation does not come from the official documentation. However, it seems interesting to "coin" it. Indeed, when you start learning about structural directives the problem is that the same words are used for different things. That IS confusing, since you may adopt the wrong point of view.
   * The `$implicit` "directive local name".
   * The technique used to create several copies of the (structural) directive template. See the directive "[myRepeater](https://github.com/denis-beurive/angulardart-playground/blob/master/directive-structural/lib/src/directive_my_repeater.dart)".
+  * Life cycle hooks: ngDoCheck, ngOnChanges, ngAfterChanges. See [this link](https://webdev.dartlang.org/angular/note/effective/change-detection).
 
 # Important note: please read
 
@@ -207,4 +208,4 @@ If an error occurred, details about the error is written into the WEB console.
 * **@Input**: [https://webdev.dartlang.org/api/angular/angular/Input-class](https://webdev.dartlang.org/api/angular/angular/Input-class).
 * **Validators**: [https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart).
 * **Debugging Dart Web Apps**: [https://webdev.dartlang.org/guides/debugging](https://webdev.dartlang.org/guides/debugging).
-
+* **Change Detection**: [https://webdev.dartlang.org/angular/note/effective/change-detection](https://webdev.dartlang.org/angular/note/effective/change-detection).
