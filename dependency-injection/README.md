@@ -10,3 +10,7 @@ It shows two techniques:
 
 * [Effective AngularDart: Dependency Injection](https://webdev.dartlang.org/angular/note/effective/dependency-injection).
 * [Dependency Injection](https://webdev.dartlang.org/angular/guide/dependency-injection#register-a-service-provider).
+* [Hierarchical Dependency Injectors](https://webdev.dartlang.org/angular/guide/hierarchical-dependency-injection).
+* [InjectorFactory](https://github.com/dart-lang/angular/blob/master/angular/lib/src/di/injector/injector.dart) and [Injector.map](https://webdev.dartlang.org/api/angular/angular/Injector-class).
+* [@Component.providers](https://github.com/dart-lang/angular/blob/master/angular/lib/src/core/metadata.dart).
+

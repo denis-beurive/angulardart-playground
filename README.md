@@ -30,7 +30,10 @@ This repository contains some code I developed while learning AngularDart.
   * The `$implicit` "directive local name".
   * The technique used to create several copies of the (structural) directive template. See the directive "[myRepeater](https://github.com/denis-beurive/angulardart-playground/blob/master/directive-structural/lib/src/directive_my_repeater.dart)".
   * Life cycle hooks: ngDoCheck, ngOnChanges, ngAfterChanges. See [this link](https://webdev.dartlang.org/angular/note/effective/change-detection).
-* [Dependency Injection](https://github.com/denis-beurive/angulardart-playground/tree/master/dependency_injection).
+* [Dependency Injection](https://github.com/denis-beurive/angulardart-playground/tree/master/dependency-injection). This includes:
+  * [InjectorFactory](https://github.com/dart-lang/angular/blob/master/angular/lib/src/di/injector/injector.dart) and [Injector.map](https://webdev.dartlang.org/api/angular/angular/Injector-class).
+  * [@Component.providers](https://github.com/dart-lang/angular/blob/master/angular/lib/src/core/metadata.dart).
+
 
 # Important note: please read
 
@@ -213,3 +216,6 @@ If an error occurred, details about the error is written into the WEB console.
 * **Dependency Injection**: [https://webdev.dartlang.org/angular/guide/dependency-injection](https://webdev.dartlang.org/angular/guide/dependency-injection).
 * **Effective AngularDart: Dependency Injection**: [https://webdev.dartlang.org/angular/note/effective/dependency-injection](https://webdev.dartlang.org/angular/note/effective/dependency-injection).
 * **Pub Dependencies**: [https://www.dartlang.org/tools/pub/dependencies](https://www.dartlang.org/tools/pub/dependencies).
+* **InjectorFactory**: [https://github.com/dart-lang/angular/blob/master/angular/lib/src/di/injector/injector.dart](https://github.com/dart-lang/angular/blob/master/angular/lib/src/di/injector/injector.dart).
+* **Injector.map**: [https://webdev.dartlang.org/api/angular/angular/Injector-class](https://webdev.dartlang.org/api/angular/angular/Injector-class).
+* **@Component.providers**: [https://github.com/dart-lang/angular/blob/master/angular/lib/src/core/metadata.dart](https://github.com/dart-lang/angular/blob/master/angular/lib/src/core/metadata.dart).
