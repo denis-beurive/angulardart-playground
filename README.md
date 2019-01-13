@@ -19,6 +19,9 @@ This repository contains some code I developed while learning AngularDart.
   * The directive [NgModel](https://github.com/kulshekhar/angular2/blob/master/angular_forms/lib/src/directives/ng_model.dart).
   * The directive [NgForm](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/ng_form.dart).
   * The implementation of validators (see [this link](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/validators.dart)).
+* [Form control](https://github.com/denis-beurive/angulardart-playground/tree/master/form-control). This includes:
+  * The directive [ngControl](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/ng_control_name.dart).
+  * The directive [ngFormControl](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/ng_form_control.dart).
 * [Attribute directives](https://github.com/denis-beurive/angulardart-playground/tree/master/directive-attribute). This includes:
   * The basic.
   * The use of the @Directive property [exportAs](https://webdev.dartlang.org/api/angular/angular/Directive/exportAs).
