@@ -142,25 +142,41 @@ Components are placed in the subdirectory "`lib`". And the main entry point (ind
 
 You can do it by either using `stagehand` or `ngdart`.
 
-### stagehand
+> See [https://pub.dartlang.org/packages/angular_cli](https://pub.dartlang.org/packages/angular_cli)
+
+> Please note that these commands will replace all characters "-" by characters "\_" in the name of the project. It does it because the given project name is used within the configure file "`pubspec.yaml`" (see the parameter "`name`").
+
+**stagehand**
 
     mkdir project_name
     cd project_name
     stagehand web-angular
 
-### ngdart
+**ngdart**
 
     ngdart new project_name
     cd project_name
     pub get
 
-> See [https://pub.dartlang.org/packages/angular_cli](https://pub.dartlang.org/packages/angular_cli)
+Once you've run either `stagehand` or `ngdart`, make sure to set the versions for the following environment/dependencies:
 
-> Please note that the command will replace all characters "-" by characters "\_" in the name of the project. It does it because the given project name is used within the configure file "`pubspec.yaml`" (see the parameter "`name`").
+* [sdk](https://webdev.dartlang.org/version).
+* [angular](https://pub.dartlang.org/packages/angular).
+* [build_runner](https://pub.dartlang.org/packages/build_runner).
+
+And if you plan to use forms (and the probability that you do so is hight), then make sure to add the [angular_forms](https://pub.dartlang.org/packages/angular_forms) dependency below:
+
+   angular_forms: ^2.1.1
+
+> Make sure to look for the last compatible version.
+
+Then don't forget to update the project tree!
+
+    pub get
 
 ## Check the versions of the build tools
 
-    $ pub deps
+    pub deps
 
 ## Updating the application package
 
