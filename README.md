@@ -166,7 +166,7 @@ Once you've run either `stagehand` or `ngdart`, make sure to set the versions fo
 
 And if you plan to use forms (and the probability that you do so is hight), then make sure to add the [angular_forms](https://pub.dartlang.org/packages/angular_forms) dependency below:
 
-   angular_forms: ^2.1.1
+    angular_forms: ^2.1.1
 
 > Make sure to look for the last compatible version.
 
