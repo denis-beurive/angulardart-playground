@@ -1,0 +1,33 @@
+
+<div class="form-style-10">
+    <form #f="ngForm" (submit)='onSubmit(f.value)'>
+        <div class="section"><span>1</span>First Name</div>
+        <div class="inner-wrap">
+            <label>
+                Your Full Name
+                <input type="text" [ngFormControl]="fullName"/>
+            </label>
+            <ul>
+                <li><b>Value</b> <code>{{fullName.value}}</code></li>
+                <li><b>Valid</b> <code>{{fullName.valid}}</code></li>
+                <li><b>Invalid</b> <code>{{fullName.invalid}}</code></li>
+                <li><b>Pristine</b> <code>{{fullName.pristine}}</code></li>
+                <li><b>Status</b> <code>{{fullName.status}}</code></li>
+                <li><b>Enabled</b> <code>{{fullName.enabled}}</code></li>
+                <li><b>Disabled</b> <code>{{fullName.disabled}}</code></li>
+                <li>... see class <a href="https://webdev.dartlang.org/api/angular_forms/angular_forms/AbstractControl-class">abstract class AbstractControl&lt;T&gt;</a></li>
+            </ul>
+        </div>
+
+        <div class="section"><span>1</span>Address</div>
+        <div class="inner-wrap">
+            <label>
+                Your address
+                <input type="text" ngControl="address"/>
+            </label>
+        </div>
+
+        <input type="submit" />
+    </form>
+</div>
+
