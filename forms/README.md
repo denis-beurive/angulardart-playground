@@ -49,6 +49,34 @@ Unlike form directives, core directives don't need to be imported.
         ...
     )
 
+## Control object
+
+**Source**: [https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/model.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/model.dart)
+
+Defines a part of a form that cannot be divided into other controls. `Control`s have values and validation state, which
+is determined by an optional validation function. `Control` is one of the three fundamental building blocks used to
+define forms in Angular, along with `ControlGroup` and `ControlArray`. 
+
+By default, a `Control` is created for every `<input>` or other form component.
+
+> A Control object is defined within the component class and is "linked" to a form input (within the component template)
+> by a `ngDirective` directive. 
+
+## ngFormControl directive
+
+**Source**: [https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/ng_form_control.dart](https://github.com/dart-lang/angular/blob/master/angular_forms/lib/src/directives/ng_form_control.dart)
+
+> Creates and binds a  ̀Control` with a specified name to a DOM element.
+
+What does that mean, in practice ?
+
+
+
+
+
+
+
+
 # Troubleshooting
 
 ## Watch out for the unexpected space !
